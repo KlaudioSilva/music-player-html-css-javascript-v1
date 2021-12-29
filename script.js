@@ -1,18 +1,49 @@
 let musicas = [
-    {titulo:'Just Another Day', artista: 'Jon Secada', src:'musicas/Jon Secada - Just Another Day.mp3', img:'capas/jon-secada.jpg'}, {titulo:'Dont Look Any Futher', artista: 'M. People', src:'musicas/M People - Dont Look Any Futher.mp3', img:'capas/mpeople.jpg'}, {titulo:'Melo da Lagartixa', artista: 'Ndee Naldinho', src:'musicas/Ndee Naldinho - Melo da Lagartixa.mp3', img:'capas/ndeenaldinho.jpg'}, {titulo:'Nomes de Meninas (RMX)', artista: 'Pepeu', src:'musicas/Pepeu - Nomes de Meninas.mp3', img:'capas/pepeu.jpg'}, {titulo:'Spring Love', artista: 'Stevie B', src:'musicas/Stevie B - Spring Love.mp3', img:'capas/stevieb.jpg'}, {titulo:'Rockin Over The Beat', artista: 'Technotronic', src:'musicas/Technotronic - Rockin Over The Beat.mp3', img:'capas/technotronic.jpg'}
+    {titulo:'Just Another Day', artista: 'Jon Secada', src:'musicas/Jon Secada - Just Another Day.mp3', img:'capas/jon-secada.jpg'}, {titulo:'Dont Look Any Further', artista: 'M People', src:'musicas/M People - Dont Look Any Further.mp3', img:'capas/mpeople.jpg'}, {titulo:'Melo da Lagartixa', artista: 'Ndee Naldinho', src:'musicas/Ndee Naldinho - Melo da Lagartixa.mp3', img:'capas/ndeenaldinho.jpg'}, {titulo:'Nomes de Meninas', artista: 'Pepeu', src:'musicas/Pepeu - Nomes de Meninas.mp3', img:'capas/pepeu.jpg'}, {titulo:'Spring Love', artista: 'Stevie B', src:'musicas/Stevie B - Spring Love.mp3', img:'capas/stevieb.jpg'}, {titulo:'Rockin Over The Beat', artista: 'Technotronic feat. Ya Kid K', src:'musicas/Technotronic - Rockin Over The Beat.mp3', img:'capas/technotronic.jpg'}
 ]
 
 let musica = document.querySelector('audio');
+let indexMusica = 0;
 let duracaoMusica = document.querySelector('.fim');
 let capa = document.querySelector('img');
 let nomeMusica = document.querySelector('.descricao h2');
 let nomeArtista = document.querySelector('.descricao i');
 
+renderizarMusica(indexMusica);
+
 duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 
+
+//EVENTOS
 document.querySelector('.bt-play').addEventListener('click', tocaMusic);
 document.querySelector('.bt-pause').addEventListener('click', pausaMusic);
-musica.addEventListener('timeupdate', atualizaBarra)
+musica.addEventListener('timeupdate', atualizaBarra);
+document.querySelector('.anterior').addEventListener('click', () => {
+    indexMusica--;
+    if(indexMusica < 0){
+        indexMusica = 5;
+    }
+    renderizarMusica(indexMusica)
+});
+document.querySelector('.proxima').addEventListener('click', () => {
+    indexMusica++;
+    if(indexMusica > 5){
+        indexMusica = 0;
+    }
+    renderizarMusica(indexMusica)
+});
+
+
+//FUNÇÕES
+function renderizarMusica(index){
+    musica.setAttribute('src', musicas[index].src);
+    musica.addEventListener('loadeddata', () => {
+        nomeMusica.textContent = musicas[index].titulo;
+        nomeArtista.textContent = musicas[index].artista;
+        capa.src = musicas[index].img;
+        duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
+    });
+}
 
 function tocaMusic(){
     musica.play();
@@ -42,3 +73,4 @@ function segundosParaMinutos(segundos){
 
     return campoMinutos+':'+campoSegundos;
 }
+
