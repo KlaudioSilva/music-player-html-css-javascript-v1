@@ -23,6 +23,16 @@ duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 document.querySelector('.bt-play').addEventListener('click', tocaMusic);
 document.querySelector('.bt-pause').addEventListener('click', pausaMusic);
 musica.addEventListener('timeupdate', atualizaBarra);
+
+musica.addEventListener('ended', () => {
+    indexMusica++;
+    if(indexMusica >= musicas.length){
+        indexMusica = 0; // Reiniciar a playlist
+    }
+    renderizarMusica(indexMusica);
+    musica.play();
+});
+
 document.querySelector('.anterior').addEventListener('click', () => {
     indexMusica--;
     if(indexMusica < 0){
