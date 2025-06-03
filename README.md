@@ -39,6 +39,7 @@ A simple MP3 music player built with pure HTML, CSS and JavaScript. This project
 - [ ] Mostrar tempo restante
 - [ ] Animações suaves em botões
 - [ ] Suporte a modo escuro/claro
+- [ ] Animação retrô de vinil girando com a capa da música
 
 ### Etapa 5 – Recursos avançados
 - [ ] VU Meter com Web Audio API
