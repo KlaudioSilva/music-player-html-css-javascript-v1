@@ -1,10 +1,13 @@
 let musicas = [
-    {titulo:'Just Another Day', artista: 'Jon Secada', src:'musicas/Jon Secada - Just Another Day.mp3', img:'capas/jon-secada.jpg'}, 
     {titulo:'Dont Look Any Further', artista: 'M People', src:'musicas/M People - Dont Look Any Further.mp3', img:'capas/mpeople.jpg'}, 
+    {titulo:'Enjoy The Silence', artista: 'Depeache Mode', src:'musicas/Depeache Mode - Enjoy The Silence.mp3', img:'capas/depeache-mode.jpg'}, 
+    {titulo:'Come Undone', artista: 'Duran Duran', src:'musicas/Duran Duran - Come Undone.mp3', img:'capas/duran-duran.jpg'}, 
     {titulo:'Melo da Lagartixa', artista: 'Ndee Naldinho', src:'musicas/Ndee Naldinho - Melo da Lagartixa.mp3', img:'capas/ndeenaldinho.jpg'}, 
     {titulo:'Nomes de Meninas', artista: 'Pepeu', src:'musicas/Pepeu - Nomes de Meninas.mp3', img:'capas/pepeu.jpg'}, 
+    {titulo:'Tô Ouvindo Alguém Me Chamar', artista: 'Racionais MCs', src:'musicas/Racionais Mcs - Tô Ouvindo Alguém Me Chamar.mp3', img:'capas/racionais-mcs.jpg'}, 
     {titulo:'Spring Love', artista: 'Stevie B', src:'musicas/Stevie B - Spring Love.mp3', img:'capas/stevieb.jpg'}, 
-    {titulo:'Rockin Over The Beat', artista: 'Technotronic feat. Ya Kid K', src:'musicas/Technotronic - Rockin Over The Beat.mp3', img:'capas/technotronic.jpg'}
+    {titulo:'Rockin Over The Beat', artista: 'Technotronic feat. Ya Kid K', src:'musicas/Technotronic - Rockin Over The Beat.mp3', img:'capas/technotronic.jpg'}, 
+    {titulo:'Just Another Day', artista: 'Jon Secada', src:'musicas/Jon Secada - Just Another Day.mp3', img:'capas/jon-secada.jpg'},
 ]
 
 let musica = document.querySelector('audio');
